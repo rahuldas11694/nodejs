@@ -4,27 +4,22 @@
 
 	var app = express();
 
-
-
-
 	var mysql = require('mysql');
 
-
-	var connection = mysql.createPool({
-	    host: '127.0.0.1',
-	    user: 'root',
-	    password: '',
-	    database: 'securityDB'
-	});
-
 	var server = http.createServer(function(request, response) {
+	    var connection = mysql.createConnection({
+	        host: '127.0.0.1',
+	        user: 'root',
+	        password: '',
+	        database: 'securityDB'
+	    });
+
 	    console.log(request.url)
+
 	    if (request.url === '/users') {
 	        console.log("true");
-	         console.log(mysql);
-
-	         console.log(connection);
-
+	        console.log(mysql);
+	        console.log(connection);
 	        /*******************************************************************/
 	        connection.connect(function(err) {
 
@@ -33,16 +28,16 @@
 	                return;
 	            } else {
 	                console.log('connected...$$$$$$$$$$$$$$ ');
-	                // query is asynchronous fun, so u van not return any value
-	                connection.query('SELECT username,email FROM auth_user', function(err, rows, fields) {
-	                console.log('connection ending');
+	                // query is asynchronous fun, so u van not return any value 
+	                connection.query('SELECT username,email FROM auth_user', function(err, rows, fields) { //this is a callback function
+	                    console.log('connection ending');
 	                    connection.end();
 	                    if (err) throw err;
 
-	            	// connection.end();
+	                    // connection.end();
 	                    response.writeHead(200, { 'Content-Type': 'text/html' });
 	                    response.write('<html>');
-	                    response.write('<header>');
+	                    response.write('<head>');
 	                    response.write('<title>server started</title>');
 	                    response.write('</head>');
 	                    response.write('<body>');
@@ -51,35 +46,32 @@
 	                    for (var i in rows) {
 	                        //console.log("username->", rows[i].username, '||   email address->', rows[i].email);
 	                        // console.log(rows);
-	                      console.log('for loop ')
-                        response.write('username:' + rows[i].username + '*******************Email:' + rows[i].email);
-                        response.write('<br>');
-
-
+	                        console.log('for loop ')
+	                        response.write('username:' + rows[i].username + '*******************Email:' + rows[i].email);
+	                        response.write('<br>');
 	                    } // end of for loop
-	                    response.write('</body>');
-	                    response.write('<html>');
 	                    console.log('response ending on console');
-		                response.write("response endingggg-> <br>");
-		                response.end('response ended');
+	                    response.write("response endingggg-> <br>");
 
+	                    response.write('</body>');
+	                    response.write('</html>');
+	                    response.end();  //response ended
 	                }); // end of connection.query
-					// connection.end();
+	                // connection.end();
+
+
 
 	            } // end of else
-	           // connection.end();
+	            // connection.end();
 	        }); // end of connection.connect()
-
-// connection.end();
-
-	        /*******************************************************************/
-	    } else {
+	        /***************************************************************************/
+	    } 
+	    else {
 	        console.log('false');
-
 	    }
 
-	}); //end of create server
 
+	}); //end of create server
 
 	server.listen(8081);
 
