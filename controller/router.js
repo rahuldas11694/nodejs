@@ -53,7 +53,67 @@ var sql = require('../model/sql.js');
 	    }
 
 
+
+
+
+
+ exports.contPost = function(req,resp)
+		{
+			console.log("True->updateUser");
+			resp.writeHead(200, {'Content-Type': 'text/html' });
+
+			sql.dbconn.connect(function(err)
+					{
+						if(err)
+						{
+							console.error("update error:",err.stack);
+						}
+
+						else
+						{
+							console.log('update post connected');
+
+							var updated = sql.dbconn.query('UPDATE auth_user SET username="updatePostAnkit" WHERE id=3', function(err,res)
+							{
+								sql.dbconn.end();
+								if(err) throw err;
+								console.log('updated data in auth_user');
+								resp.write('updated data in auth_user');
+								resp.end();
+
+							});
+						return;
+						}
+
+					});
+		}
+
 	     
+exports.contDelete =
+		function(req,resp)
+		{
+			console.log("true->deleteUser");
+			resp.writeHead(200, {'Content-Type': 'text/html' });
+			sql.dbconn.connect(function(err)
+			{
+				if(err)
+				{
+					console.error("delete error->",err.stack);
+				}
+				else
+				{
+					console.log('delete post connected');
+					var deleted = sql.dbconn.query('DELETE from auth_user where id=3', function(err,res)
+					{
+						if(err) throw err;
+						console.log('deleted data');
+						resp.write('deletd data');
+						resp.end();
+					});
+				return;
+				}
+			});
+		} 
 
 
 
