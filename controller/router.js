@@ -4,11 +4,8 @@ var express = require('express');
 var sql = require('../model/sql.js');  
  
 	 exports.contGet = function(req,res){
-			//res.send("hiii");
-	    	console.log('RESPONSE',res);
-	        console.log("true->userLIST");
-	        console.log(mysql);
-	        console.log(sql.dbconn);
+
+	    	
 	        /*******************************************************************/
 	        sql.dbconn.connect(function(err){
 
@@ -18,8 +15,8 @@ var sql = require('../model/sql.js');
 	            } else {
 	                console.log('get...connected..$$$$$$$$$$$$$$ ');
 	                // query is asynchronous fun, so u van not return any value 
-	                sql.dbconn.query('SELECT username,email FROM auth_user',function(err, rows, fields) { //this is a callback function
-	                    console.log('connection ending');
+	               	 sql.dbconn.query('SELECT username,email FROM auth_user',function(err, rows, fields) { //this is a callback function
+	                 console.log('connection ending');
 	                    sql.dbconn.end();
 	                    if (err) throw err;
 
@@ -32,14 +29,7 @@ var sql = require('../model/sql.js');
 	                        res.write("hiiii");
 	                        console.log(json);
 
-	                    //for (var i in rows) {
-	                        //console.log("username->", rows[i].username, '||   email address->', rows[i].email);
-	                        // console.log(rows);
-	                        //console.log('for loop ')
-	                        //response.write('username:' + rows[i].username + '*******************Email:' + rows[i].email);
-	                        //response.write(json);
-	                        //response.write('<br>');
-	                    //} // end of for loop
+	                    
 	                    console.log('response ending on console');
 
 	                    res.end(); //response ended
@@ -89,8 +79,7 @@ var sql = require('../model/sql.js');
 		}
 
 	     
-exports.contDelete =
-		function(req,resp)
+exports.contDelete = function(req,resp)
 		{
 			console.log("true->deleteUser");
 			resp.writeHead(200, {'Content-Type': 'text/html' });
@@ -115,13 +104,44 @@ exports.contDelete =
 			});
 		} 
 
+exports.contPut = function(req,resp)
+		{
+			console.log("true addUser");
+			resp.writeHead(200, {'Content-Type': 'text/html' });
+			sql.dbconn.connect(function(err)
+			{
+				if(err)
+   
+				{
+					console.error("post error", err.stack);
+					return;
+				}
+
+				else
+				{
+				console.log("put connected...");
+
+				var record = {id:'100', username:'hundred', email:'santosh@gmail.com', address:'vidyavihar', teli:'098766787', department:'front end', DOB:'23/6/1993', DOJ:'1/5/2016', password:'23sahusatish'};
 
 
+				sql.dbconn.query('INSERT INTO auth_user SET ?',record, function(err,res)
+						{
+							sql.dbconn.end();
+							console.log("db conn endd");
+							if(err) throw err;
+							console.log("inserted in auth_user");
+							resp.write('inserted into db');
+							resp.write('seted'); 
 
+							resp.end();
 
+				}); //end of query
+				return;
+				}
 
-
-
+			});  // end of db.connect post
+			
+		}
 
 
 
