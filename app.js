@@ -8,7 +8,7 @@ var http = require('http');
 
 	var mysql = require('mysql');
 
-	var routes = require('./routes.js');
+	var routes = require('./routes');
 
 
 
@@ -36,7 +36,7 @@ var http = require('http');
 
 	    console.log("routes$$$$$$$$$",routes);
 
-	    app.use('./routes',routes);
+	    app.use('/',routes);
 /******************************************** end post *******************************************************/
 
 	//server.listen(8081);

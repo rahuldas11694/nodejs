@@ -1,8 +1,10 @@
 var express = require('express');
+var app = express();
 var router  = express.Router(); // its a class to create modular, mountanable route handlers
 
 	var modules = require('./modules/modules.js');
      var controller = require('./controller');
+
      console.log("controller->",controller.uget.contGet);
      console.log("routes->modules",modules);
 
@@ -21,7 +23,7 @@ var router  = express.Router(); // its a class to create modular, mountanable ro
 	router.get('/usersList',controller.uget.contGet);
 
      module.exports= router;
-     // module.exports= modules;
+     //  module.exports= modules;
      // module.exports= controller;
 
 

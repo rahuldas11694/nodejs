@@ -1,4 +1,3 @@
-
 var mysql = require('../node_modules/mysql');
 
 module.exports= {
