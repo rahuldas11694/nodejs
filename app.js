@@ -1,4 +1,4 @@
-	var http = require('http');
+var http = require('http');
 
 	var express = require('express');
 
@@ -8,27 +8,40 @@
 
 	var mysql = require('mysql');
 
-    var cont = require('./controller/router.js');
+	var routes = require('./routes.js');
+
+
+
+    //var cont = require('./controller/router.js');
+    // var modules = require('./modules/modules.js');
+     // var modules = require('./modules/modules.js');
+     // var controller = require('./controller');
+     // console.log("controller",controller);
+     // console.log("modules",modules);
 
 /*********************************************GET REQUEST******************************************************/
 
-	    router.get('/usersList',cont.contGet);
+	    // router.get('/usersList',controller..contGet);
 
 		//if(request.url==='/addUser') //
-		router.put('/addUser',cont.contPut);
+		// router.put('/addUser',controller.uput.contPut);
 
 		//if(request.url==='/updateUser')  // method Update
-		router.post('/updateUser',cont.contPost); 
+ 		// router.post('/updateUser',controller.upost.contPost); 
 		
 		//if(request.url==='/deleteUser')  // methos DELETE
-	    router.delete('/deleteUser',cont.contDelete); 
+	    // router.delete('/deleteUser',controller.udelete.contDelete); 
 
+	    // router.get('/users/List',controller.uget.contGet);
 
+	    console.log("routes$$$$$$$$$",routes);
+
+	    app.use('./routes',routes);
 /******************************************** end post *******************************************************/
 
 	//server.listen(8081);
 	app.listen(8081);
-	app.use('/',router);
+	//app.use('/',router);
 
     //app.listen(8081);
 

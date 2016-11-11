@@ -1,4 +1,5 @@
-	var mysql = require('../node_modules/mysql');
+
+var mysql = require('../node_modules/mysql');
 
 module.exports= {
  dbconn: mysql.createConnection({

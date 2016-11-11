@@ -1,8 +1,5 @@
+ var sql = require('../model/sql.js');  
 var mysql = require('../node_modules/mysql');
-var express = require('express');
-
-var sql = require('../model/sql.js'); 
-
 
 
 exports.contPut = function(req,resp)
@@ -22,7 +19,7 @@ exports.contPut = function(req,resp)
 				{
 				console.log("put connected...");
 
-				var record = {id:'11', username:'love', email:'santosh@gmail.com', address:'vidyavihar', teli:'098766787', department:'front end', DOB:'23/6/1993', DOJ:'1/5/2016', password:'23sahusatish'};
+				var record = {id:'100', username:'hundred', email:'santosh@gmail.com', address:'vidyavihar', teli:'098766787', department:'front end', DOB:'23/6/1993', DOJ:'1/5/2016', password:'23sahusatish'};
 
 
 				sql.dbconn.query('INSERT INTO auth_user SET ?',record, function(err,res)
