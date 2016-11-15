@@ -19,7 +19,7 @@ exports.contPut = function(req,resp)
 				{
 				console.log("put connected...");
 
-				var record = {id:'100', username:'hundred', email:'santosh@gmail.com', address:'vidyavihar', teli:'098766787', department:'front end', DOB:'23/6/1993', DOJ:'1/5/2016', password:'23sahusatish'};
+				var record = {id:'12', username:'manish', email:'manish@gmail.com', address:'kurla', teli:'098766785', department:'electical', DOB:'23/6/1993', DOJ:'1/5/2016', password:'fsgfef35',status:"Active"};
 
 
 				sql.dbconn.query('INSERT INTO auth_user SET ?',record, function(err,res)

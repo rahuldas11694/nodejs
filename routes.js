@@ -5,7 +5,7 @@ var router  = express.Router(); // its a class to create modular, mountanable ro
 	var modules = require('./modules/modules.js');
      var controller = require('./controller');
 
-     console.log("controller->",controller.uget.contGet);
+     //console.log("controller->",controller.uget.contGet);
      console.log("routes->modules",modules);
 
 	// router.use(function timelog(req,res,next)
