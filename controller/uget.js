@@ -1,6 +1,7 @@
  var sql = require('../model/sql.js'); 
 var mysql = require('../node_modules/mysql');
 
+var lib = require('../lib');
 
 
 exports.contGet = function(req,res){
@@ -32,28 +33,39 @@ exports.contGet = function(req,res){
 	                        module.exports= data;
 	                        console.log("status-->",json);
 	                        console.log("*****DATA********",data[0].status);
-	                        for(var i=0 ; i<data.length;i++)
-	                        {
-	                        //console.log("*****DATA********",data[i].status);
+	                        // for(var i=0 ; i<data.length;i++)
+	                        // {
+	                        // //console.log("*****DATA********",data[i].status);
 
+	                        // }
+	                        var	lib_data = lib.evry(data)
+	                        for(var i=0; i<lib_data.length; i++)
+	                        {
+	                        	console.log(lib_data[i].username);
 	                        }
-	                        var lib = require('../lib.js');
+	                        console.log("required data========",lib); // evry fun return some value here;
+
+
+
+	                        // var nl = new NodeLib(data);
 
 	                        /** lib.LibData gives function defination
 	                        * and lib.LibData() executes the function
 	                        *
 	                        **/
-	                        console.log("_+_+_+_+_+_+_+_+_+",lib.LibData());
-	                        var activeUser = lib.LibData(); 
-	                        for(var i=0 ; i<activeUser.length;i++)
-	                        {
-	                        console.log("username:",activeUser[i].username,"is",activeUser[i].status);
-	                        res.write(activeUser[i].status);
+	                        // console.log("_+_+_+_+_+_+_+_+_+",lib.LibData());
+	                        // var activeUser = lib.LibData(); 
+	                        // for(var i=0 ; i<activeUser.length;i++)
+	                        // {
+	                        // console.log("username:",activeUser[i].username,"is",activeUser[i].status);
+	                        // res.write(activeUser[i].status);
 
-	                        }
+	                        // }
+
+
 
 	                    
-	                    console.log('response ending on console');
+	                    console.log('response ending on console',lib);
 
 	                    res.end(); //response ended
 	                }); // end of connection.query

@@ -1,40 +1,38 @@
-var Jsondata = require('./controller/uget'); // data imported from uget conget fun frm inside
-console.log("Jsondata from uget",Jsondata);
-
-// var LibData 
-exports.LibData= function()
-					{
-						var ActiveUser = new Array();
-						var i=0;
-
-						function isActive(element,index)
-						{
-							//console.log("callback. Element-->",element.status,index)
-							if(element.status==='active')
-							{
-								//console.log("IN IF STATEMENT ELEMENT-->",element,index);
-								// return element.status;
-								
-								  ActiveUser[i++] =element;
-								  return element.status;
-								 //console.log("NEW array INDEX ->",i,"ActiveUser ",ActiveUser)
-
-							}
-							else{
-							  return element.status;   // by defaults it returns false always
-							}
-						}
-
-						console.log("every-->",Jsondata.every(isActive)); //three param 1.ele 2.index 3.array
-						
-
-						console.log("************",ActiveUser,"**************");
-						return ActiveUser;
-						
-					} 
-// module.exports = LibData;
-//module.exports = ActiveUser;
+console.log("hiii THIS IS LIB")
 
 
-						
+function NodeLib()
+	{
+
+	// this.data = name;
+	// console.log(this.name,"inside nodeLib");
+
+	    NodeLib.prototype.evry = function(data)
+		    {
+		    	console.log("_+_+_+_+_+_+_+DATA+IS_+_+_+_+_+_+_+_+_+_",data)
+		    	
+					function isActive(element,index)
+			    	{
+
+					return element.status==="active";
+			    		
+			    	}
+
+		    	var filteredData = data.filter(isActive);
+		    	console.log("THIS IS FILTERED DATA",filteredData);
+
+		    	return filteredData ;
+		    }
+
+	}
+
+	var nl = new NodeLib();	
+
+		// console.log("nl---------------------->",nl.evry);
+		// console.log("NodeLib.evry---------------------->",NodeLib);
+		// console.log("NodeLib.prototype---------------------->",NodeLib.prototype);
+
+
+	//module.exports = nl;
+	module.exports = NodeLib.prototype;	
 
