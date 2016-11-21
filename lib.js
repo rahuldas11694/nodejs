@@ -9,8 +9,13 @@ function NodeLib()
 
 	    //NodeLib.prototype.evry = function(data)
 		  
-		  this.evry = function(data,status,callback)
+		  this.evry = function(data,callback)
 		  {
+		  		console.log("check2")
+		    	var status=  callback();//
+
+		    	console.log("********************************************************",status);
+
 		    	console.log("_+_+_+_+_+_+_+DATA+IS_+_+_+_+_+_+_+_+_+_",data)
 		    	
 					function isActive(element,index)
@@ -21,8 +26,7 @@ function NodeLib()
 			    	}
 
 		    	var filteredData = data.filter(isActive);
-		    	console.log("THIS IS FILTERED DATA",filteredData);
-		    	callback(filteredData);
+		    	console.log("THIS IS FILTERED DATA", filteredData);
 		    	return filteredData;
 		    	
                  

@@ -1,8 +1,9 @@
  var sql = require('../model/sql.js'); 
 var mysql = require('../node_modules/mysql');
 
-var lib = require('../lib');
 var checkActive = require('./check_active.js');
+var lib = require('../lib');
+console.log(checkActive);
 
 
 exports.contActive = function(req,res){
@@ -56,13 +57,62 @@ exports.contActive = function(req,res){
              
 
              // var lib_data = lib.evry(data,"active",function(data){
-             var lib_data = lib.evry(data,function(data){
+             		var status;
+             		console.log("((((((((((((((((((((",status);
+             		for(var i=0; i<data.length;i++)
+        			{
+        
+						console.log('+++++++++++++++++++',data[i].status);
+
+						if(data[i].status === 'active' ||  data[i].status === 'present' || data[i].status === 'enable')
+						{
+						 status = data[i].status;
+						 console.log(")))))))))))))))))))))))))))",status);
+						 break;
+							
+						}
+						else 
+						{
+								continue;
+						} 
+					}
 
 
+
+             		function isActive(element,index)
+			    	{
+					 
+					 return element.status===status;
+
+			    	}
+
+		    	var filteredData = data.filter(isActive);
+		    	console.log("filteredData---->",filteredData);
+
+
+
+
+
+
+
+	        /*******************************************************************
+			*
+             var lib_data = lib.evry(data,function(){
+            * 			console.log("check1")
+             	     var  chAc = checkActive.statuses(data);
+ 			*			console.log("qwertyuioplkjhgfdsazxcvbnm",chAc);
+ 						return chAc;
+			*
+
+			*	
              		// onsole.log("--------------------------------------",data)
-             		// console.log("---------------------CALLBACK---------------------");
+            * 		// console.log("---------------------CALLBACK---------------------");
 					}
              );
+
+	        *******************************************************************/
+             	// var chAc = checkActive.statuses(data,)
+
 					
              		// console.log("---------------------",libdata,"---------------------");
 	                         		
