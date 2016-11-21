@@ -2,12 +2,14 @@
 var mysql = require('../node_modules/mysql');
 
 var lib = require('../lib');
+var checkActive = require('./check_active.js');
 
 
-exports.contGet = function(req,res){
+exports.contActive = function(req,res){
 
 	    	
 	        /*******************************************************************/
+
 	        sql.dbconn.connect(function(err){
 
 	            if (err) {
@@ -23,32 +25,60 @@ exports.contGet = function(req,res){
 	                    if (err) throw err;
 
 	                    // connection.end();
-	                    res.writeHead(200, {'Content-Type': 'x-application/json' });
+	                    res.writeHead(200, {'Content-Type': 'text/html' });
 
 	                        
 	                        var json = JSON.stringify(rows); //serializez it.. diff bw parsejson and stringify
-	                        res.write(json);
+	                        // res.write(json);
 	                        var data = JSON.parse(json);
-	                        res.write("hiiii");
-	                        module.exports= data;
-	                        console.log("status-->",json);
-	                        console.log("*****DATA********",data[0].status);
-	                        // for(var i=0 ; i<data.length;i++)
-	                        // {
-	                        // //console.log("*****DATA********",data[i].status);
+	                        // res.write("hiiii");
 
+	                        console.log("status-->",data);
+	                        console.log("*****DATA********",data[0].status);
+
+	           //              function GiveStatus(data){
+	           //              	var th = {};
+	           //              	for(var i=0; i<data.length; i++)
+	           //              	{
+	           //              		 data[i].username= data[i].status;
+	           //              	}
+
+    								// return th;
+	           //              }
+
+	           //              	var giveStatusData = GiveStatus(data);
+	           //              	console.log("+++++++++++++++++++++++++++++++++++++++++====", giveStatusData)
+
+	                        
+	                        // console.log("+++++++++++++++++++++++JD+++++++++++++++++++++++++++",jd);
+							   // module.exports =data;
+
+             
+
+             // var lib_data = lib.evry(data,"active",function(data){
+             var lib_data = lib.evry(data,function(data){
+
+
+             		// onsole.log("--------------------------------------",data)
+             		// console.log("---------------------CALLBACK---------------------");
+					}
+             );
+					
+             		// console.log("---------------------",libdata,"---------------------");
+	                         		
+
+
+	                        // for(var i=0; i<lib_data.length; i++)
+	                        // {
+	                        // 	console.log(lib_data[i].username);
+	                        // 	res.write("<br>THE ACTIVE USERS ARE-------->"+lib_data[i].username+"<br>");
 	                        // }
-	                      /**   module.exports =data;
-	                        * var	lib_data = lib.evry(data)
-	                        *for(var i=0; i<lib_data.length; i++)
-	                        *{
-	                        *	console.log(lib_data[i].username);
-	                        *}
 	                        // console.log("required data========",lib); // evry fun return some value here;
 
-	                        *console.log("!@#$%^&*())(*&^%$#@!@#$%^&*()",lib);
+	                        console.log("!@#$%^&*())(*&^%$#@!@#$%^&*()",lib);
 
-	                        */
+
+	                        
 
 	                        // var nl = new NodeLib(data);
 
@@ -78,7 +108,7 @@ exports.contGet = function(req,res){
 	            // connection.end();
 	        }); // end of connection.connect()
 	        /***************************************************************************/
-           
+
 
 	    }
 

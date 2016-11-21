@@ -22,6 +22,8 @@ var router  = express.Router(); // its a class to create modular, mountanable ro
 
 	router.get('/usersList',controller.uget.contGet);
 
+	router.get('/usersList/activeUser',controller.uActive.contActive);
+
      module.exports= router;
      //  module.exports= modules;
      // module.exports= controller;

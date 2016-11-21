@@ -3,27 +3,33 @@ console.log("hiii THIS IS LIB")
 
 function NodeLib()
 	{
-
+// var this = {};
 	// this.data = name;
 	// console.log(this.name,"inside nodeLib");
 
-	    NodeLib.prototype.evry = function(data)
-		    {
+	    //NodeLib.prototype.evry = function(data)
+		  
+		  this.evry = function(data,status,callback)
+		  {
 		    	console.log("_+_+_+_+_+_+_+DATA+IS_+_+_+_+_+_+_+_+_+_",data)
 		    	
 					function isActive(element,index)
 			    	{
 
-					return element.status==="active";
+					 return element.status===status;
 			    		
 			    	}
 
 		    	var filteredData = data.filter(isActive);
 		    	console.log("THIS IS FILTERED DATA",filteredData);
+		    	callback(filteredData);
+		    	return filteredData;
+		    	
+                 
 
-		    	return filteredData ;
+
 		    }
-
+ 
 	}
 
 	var nl = new NodeLib();	
@@ -33,6 +39,7 @@ function NodeLib()
 		// console.log("NodeLib.prototype---------------------->",NodeLib.prototype);
 
 
-	//module.exports = nl;
-	module.exports = NodeLib.prototype;	
+	 module.exports = nl;
+   
+    // module.exports = NodeLib.prototype;	
 

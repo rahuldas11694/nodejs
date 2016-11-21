@@ -7,15 +7,16 @@ function abc(){
         function final(){
            console.log("finally")   
         }
-        var fn = function(){
-          console.log("sdfsdfds")
-        }
+        
         return {
           a : "haha",
           b : function(){
             console.log("2222");
             //function fn(){};
-            return final;
+            var fn = function(){
+              console.log("sdfsdfds")
+            }
+            return fn;
           }
         }
       }
@@ -23,7 +24,7 @@ function abc(){
       // return vrr;
    }
 
-abc()().b().final();
+abc()().b();
  // var f =  abc()().b();
  //  var f = function final(){
  //   console.log("sdfhsbfsf");
