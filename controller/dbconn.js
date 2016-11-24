@@ -2,54 +2,33 @@ var mysql = require('../node_modules/mysql');
 var sql = require('../model/sql.js');
 
 
-module.exports =
-{
-	a : function(qwry)
-			{	
+module.exports = {
+    createConnection: function(qwry, callback) {
+        console.log("query--->", qwry)
+        sql.dbconn.connect(function(err) {
+            if (err) throw err;
+
+            else {
+                console.log('........connected.......');
+                // 
+                sql.dbconn.query(qwry, function(err, rows, fields) {
+                    if (err)
+                        return callback(err);
+                    else {
+                        console.log(".....rows.......", rows);
+                        sql.dbconn.end();
+                        console.log("sending-------------------calback")
+                        callback(null, rows, fields);
+
+                    }
+
+                });
+            }
+        });
+
+        return "hiiiiii";
 
 
-				console.log("query--->",qwry)
-				sql.dbconn.connect(function(err)
-				{
-					if(err) throw err;
+    },
 
-					else {
-						console.log('........connected.......');
-						// 
-					 sql.dbconn.query(qwry);
-					 // callback()
-
-					 // sql.dbconn.query(qwry,callback(err,rows,fields));
-       //                  {
-       //                  	if(err) throw err;
-       //                  	else 
-       //                  	{
-       //                  		sql.dbconn.end();
-							// 	console.log(".....rows.......",rows) ;
-
-							// }
-
-       //                  });
-
-
-						}
-				});
-
-
-								// return rows;
-
-				  return "a successful";
-			},
-
-
-	b :function()
-			{
-				sql.dbconn.end();
-				console.log("ENDED")
-				return "b successful";
-
-			}
-
-	
- 
 }
