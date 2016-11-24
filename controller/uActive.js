@@ -14,7 +14,14 @@ exports.contActive = function(req, res) {
     // query is asynchronous fun, so u van not return any value 
     var qwry = 'SELECT username,email,status FROM auth_user'
 
-    var k = db.createConnection(qwry, function(err, rows, fields) {
+   /*  this line->23 creates database connectoin and ends the db connection
+    *  so dbconn.js is library that can be used by several api's
+    *
+    */
+    
+    var createConn = db.createConnection(qwry, function(err, rows) {
+
+    	if(err) throw err;
 
         res.writeHead(200, { 'Content-Type': 'text/html' });
         var json = JSON.stringify(rows); //serialized it.. diff bw parsejson and stringify
