@@ -1,6 +1,6 @@
  var sql = require('../model/sql.js');
  var mysql = require('../node_modules/mysql');
- var db = require('./dbconn.js');
+ var db = require('./dbconn .js');
 
 
  exports.contPut = function(req, resp) {
@@ -19,8 +19,9 @@
          resp.write('inserted into db');
          resp.write('seted');
 
-         resp.end();
+
+          resp.end();
 
      }); //end of query
-     return;
+     // return;
  }

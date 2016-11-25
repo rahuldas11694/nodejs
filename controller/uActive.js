@@ -15,7 +15,7 @@ exports.contActive = function(req, res) {
     var qwry = 'SELECT username,email,status FROM auth_user'
 
    /*  this line->23 creates database connectoin and ends the db connection
-    *  so dbconn.js is library that can be used by several api's
+    *  so pool.js is library that can be used by several api's
     *
     */
     

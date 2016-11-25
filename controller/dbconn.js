@@ -1,3 +1,5 @@
+// this file is nothing but library for other files
+
 var mysql = require('../node_modules/mysql');
 var sql = require('../model/sql.js');
 
@@ -5,24 +7,23 @@ var sql = require('../model/sql.js');
 module.exports = {
         createConnection: function(qwry, callback) {
             console.log("query--->", qwry)
+            sql.pool.getConnection(function(err, connection) {
 
-            sql.dbconn.connect(function(err) {
-
-                if (err) throw err;
+                if (err) return callback(err);
 
                 else {
                     console.log('........connected.......');
                     // 
-                    sql.dbconn.query(qwry, function(err, rows) {
-
-                        sql.dbconn.end();
+                    connection.query(qwry, function(err, rows) {
+                        connection.release();
 
                         if (err)
                             return callback(err);
+
                         else {
                             console.log(".....rows.......", rows);
                             console.log("sending-------------------calback")
-                            callback(null, rows, fields);
+                            callback(null, rows);
 
                         }
 
@@ -31,27 +32,52 @@ module.exports = {
             });
 
             return "hiiiiii";
-
-
         },
 
-        createConnectionForPut: function(qwry, record, callback) { 
-                sql.dbconn.connect(function(err) {
+        // createConnectionForPut: function(qwry, record, callback) {
+        //     sql.pool.connect(function(err) {
+        //     		console.log("ERROR",err);
+        //         if (err) throw err;
 
-                if (err) throw err;
+        //         else {
+        //             console.log('........connected.......');
+        //             // 
+        //             sql.pool.query(qwry, record, function(err) {
+
+        //                  sql.pool.end();
+        //                  Error: Cannot enqueue Handshake after already enqueuing a Handshake.
+
+
+        //                 if (err)
+        //                     return callback(err);
+
+        //                 else {
+        //                     console.log("else");
+        //                     callback(null);
+
+        //                 }
+
+        //             });
+        //         }
+        //     });
+        //     // return "createConnectionForPut returned";
+        // }
+        createConnectionForPut: function(qwry, record, callback) {
+            sql.pool.getConnection(function(err, connection) {
+                if (err) return callback(err);
 
                 else {
                     console.log('........connected.......');
                     // 
-                    sql.dbconn.query(qwry, record, function(err) {
+                    connection.query(qwry, record, function(err) {
 
-                        sql.dbconn.end();
+                        connection.release();
 
                         if (err)
                             return callback(err);
 
                         else {
-console.log("else");
+                            console.log("else");
                             callback(null);
 
                         }
@@ -59,6 +85,7 @@ console.log("else");
                     });
                 }
             });
-            return "createConnectionForPut returned";
+            // return "createConnectionForPut returned";
         }
-    }
+
+    } // end of module.exports
