@@ -24,6 +24,8 @@ router.get('/usersList', controller.uget.contGet);
 
 router.get('/usersList/activeUser', controller.uActive.contActive);
 
+router.get('/textFile',controller.fileSys.contFile);
+
 module.exports = router;
 //  module.exports= modules;
 // module.exports= controller;

@@ -13,7 +13,17 @@
     var fs 			= require('fs');
 
 
-    console.log("FILE SYSTEM",fs);
+    // console.log("FILE SYSTEM",fs);
+   // var da = fs.readFile("/Users/rahulsurvase/Desktop/nodeSql/app.js", function(err, data)
+   //  	{
+   //  		if(err) throw err;
+    		
+   //  		console.log("READFILE_______––––––––––_________–––––––>",data.toString());
+
+
+   //  	});  
+   
+   // console.log("_______––––––––––_________–––––––",da);
 
 
 
