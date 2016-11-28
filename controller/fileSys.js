@@ -13,22 +13,58 @@ exports.contFile = function(req,res){
 // 			 						'Content-Length'	: 100, // large size to fake a file
 // });
 
-        res.writeHead(200, { 'Content-Type': 'text' });
 
+    res.writeHead(200, { 'Content-Type': 'text' });
        
-	var da = fs.readFile("./ap.js", function(err, data1)
+	var da = fs.readFile("./app.js", function(err, data1)
     	{
     		try{
-			if(err) throw err;
-    		console.log("DATA1");
-    		}
+				if(err) throw new Error("something went wrong with data1");
+	    			else{
+;
+		    			fs.readFile("./lib.js",function(err,data2){
+		    				try{
+		    					if(err) throw new Error("Something wrong with the file");
+			    					else{
+			    					console.log(data2.toString());
+			    						fs.readFile("./package.json",function(err,data3){
+			    							try{
+			    								if(err) throw new Error("wrong with json file");
+				    								console.log(data3);
+				    								res.write(data1+""+data2+""+data3);
+				    								res.end();
+			    							}
+			    							catch(err){
+			    								res.write(err.toString());
+			    								res.end();
+			    							}
+
+			    						});// end of data3 file
+			    					}
+		    				}catch(err){
+		    					console.log("in data2 catch");
+		    					res.write(err.toString());
+		    					res.end();
+		    				} // end of catch above
+
+	    				});
+					}
+			}
+
+
+			
     		catch(err){
     			console.log("in catch of app.js")
     			res.write(err.toString());
     			res.end();
-
     		}
 
+
+		    				 	
+
+
+
+/*
 
     		// res.write(data1);
 
@@ -69,6 +105,12 @@ exports.contFile = function(req,res){
 
     	});
 
+
+*/
+
+
+
+
 /* var promisee = new Promise(function(resolve, reject)
 	 {
 	 	console.log("in promise ");
@@ -108,8 +150,12 @@ exports.contFile = function(req,res){
 
 
 
-
-
-
-
+}); //end of data1 da=
 }
+
+
+
+
+
+
+
