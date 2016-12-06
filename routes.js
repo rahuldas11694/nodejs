@@ -13,6 +13,9 @@ console.log("routes->modules", modules);
 // 		console.log('Time->',Date.now());
 // 	});
 
+   // THIS IS IN INDEX.JS FILE 
+
+
 
 router.put('/addUser', controller.uput.contPut);
 

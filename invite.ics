@@ -1,0 +1,58 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20161207T093000Z
+DTEND:20161207T100000Z
+DTSTAMP:20161206T104903Z
+ORGANIZER;CN=suryakant.bansode@yapsody.com:mailto:suryakant.bansode@yapsody
+ .com
+UID:c7ca1a0du7pbe4b3od2e45kmi0@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=suryakant.bansode@yapsody.com;X-NUM-GUESTS=0:mailto:suryakant.bansode@y
+ apsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Kushal Lakhotia;X-NUM-GUESTS=0:mailto:kushal.lakhotia@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=nupur.shah@yapsody.com;X-NUM-GUESTS=0:mailto:nupur.shah@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Bruno Dmello;X-NUM-GUESTS=0:mailto:bruno.dmello@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=rahul.survase@yapsody.com;X-NUM-GUESTS=0:mailto:rahul.survase@yapso
+ dy.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=shreyas.desai@yapsody.com;X-NUM-GUESTS=0:mailto:shreyas.desai@yapso
+ dy.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=mandar.dhasal@yapsody.com;X-NUM-GUESTS=0:mailto:mandar.dhasal@yapso
+ dy.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=govindraj.shetty@yapsody.com;X-NUM-GUESTS=0:mailto:govindraj.shetty
+ @yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Ankit Pandey;X-NUM-GUESTS=0:mailto:ankit.pandey@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Abhishek Neman;X-NUM-GUESTS=0:mailto:abhishek.neman@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Sanjiv Pandey;X-NUM-GUESTS=0:mailto:sanjiv.pandey@yapsody.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=darren.seiden@yapsody.com;X-NUM-GUESTS=0:mailto:darren.seiden@yapso
+ dy.com
+CLASS:PUBLIC
+CREATED:20161206T090813Z
+DESCRIPTION:Meeting Agenda - \n1. How did you felt about the last event ?\n
+ 2. what can we do to make the next event more effective ?\nView your event 
+ at https://www.google.com/calendar/event?action=VIEW&eid=YzdjYTFhMGR1N3BiZT
+ RiM29kMmU0NWttaTAgcmFodWwuc3VydmFzZUB5YXBzb2R5LmNvbQ&tok=Mjkjc3VyeWFrYW50Lm
+ JhbnNvZGVAeWFwc29keS5jb20wNDhiYzg0ZGE0YTBiZWM1MDc0YzNlODlhM2ViMmExNTRmNjMyZ
+ jhj&ctz=Asia/Calcutta&hl=en.
+LAST-MODIFIED:20161206T104902Z
+LOCATION:Meeting Room
+SEQUENCE:2
+STATUS:CONFIRMED
+SUMMARY:Discussion Regarding Dharavi Shoe Distribution Event
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

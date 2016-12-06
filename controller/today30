@@ -1,0 +1,6 @@
+10:30 --> 	 scrum meeting
+11am  -->	 installation of selenium:
+             redmine pwd set up
+
+ npm install selenium-standalone@latest -g
+selenium-standalone install
