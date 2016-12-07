@@ -10,5 +10,6 @@ module.exports = {
     uput	: require("./uput.js"),
     udelete	: require("./udelete.js"),
     uActive	: require("./uActive.js"),
-    fileSys : require("./fileSys.js")
+    fileSys : require("./fileSys.js"),
+    promise : require("./promiseEg.js")
 }

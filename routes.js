@@ -29,6 +29,9 @@ router.get('/usersList/activeUser', controller.uActive.contActive);
 
 router.get('/textFile',controller.fileSys.contFile);
 
+router.get('/promises',controller.promise.contPromise);
+
+
 module.exports = router;
 //  module.exports= modules;
 // module.exports= controller;

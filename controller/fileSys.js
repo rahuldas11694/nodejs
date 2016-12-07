@@ -5,8 +5,8 @@ console.log("FILE_SYSTEM")
 var promise = require('bluebird');
 // console.log(promise)
 
-var errors = require('errors');
-console.log(errors)
+// var errors = require('errors');
+// console.log(errors)
 
 
 exports.contFile = function(req, res) {
@@ -42,7 +42,7 @@ exports.contFile = function(req, res) {
             // res.write("app.js  requested file not found");
             // res.end();
             console.log("err----->",err,"-------","<--------req------>",req)
-            // res.writeHead(404);
+            res.writeHead(404);
             res.write("FileNotFoundException");
 
             res.end();
