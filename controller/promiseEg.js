@@ -14,7 +14,7 @@ var fs = Promise.promisifyAll(require("fs"));
 
 exports.contPromise = function(req, res) {
 
-    /*  
+        /*  
     fs.readFileAsync("./app.js")
         .then(function(data) {
             console.log("promise function executed");
@@ -47,19 +47,19 @@ exports.contPromise = function(req, res) {
 */
 
 
-    // .catch(function(err) {
-    //     console.error(err)
-    //     res.statusMessage = "issue with file";
-    //     res.statusCode = 404;
+        // .catch(function(err) {
+        //     console.error(err)
+        //     res.statusMessage = "issue with file";
+        //     res.statusCode = 404;
 
-    //     res.write("FileNotFoundException");
-    //     res.end();
-    // })
+        //     res.write("FileNotFoundException");
+        //     res.end();
+        // })
 
 
-  			//NESTED Promise
+        //NESTED Promise
 
-  /*  
+        /*  
     fs.readFileAsync("./app.js")
         .then(function(data1) {
             console.log("in data11111 then")
@@ -94,11 +94,64 @@ exports.contPromise = function(req, res) {
 
 */
 
-var arr = ['./app.js', './lib.js', './package.json']
+        var arr = ['./app.js', './lib.js', './package.json'];
+        // console.log(arr.length);
+        var i;
+        var j = 0;
+        for (i = 0; i < arr.length; i++) {
+            console.log("current value of i----->", i)
+
+            fs.readFileAsync(arr[i])
+                .then(function(data) {
+
+                    console.log("INSIDE FIRST THEN ");
+                    res.write(data.toString());
+                    // if()
+                    return Promise.resolve(data);
+
+                })
+                .then(function(data) {
+                    var jval = arr[j];
+                    var DATA = data.toString("utf8");
+
+                    // console.log("TO STRING DATA----_______>>>>",DATA);
+                    var datum = {
+                        jval: DATA
+                    };
+
+                    var serialize = JSON.stringify(datum);
+                    var deserialize = JSON.parse(serialize);
+                    console.log("INSIDE SECOND THEN ", jval, deserialize, j, arr.length - 1)
+                    res.write(datum.toString());
+                    if (j === arr.length - 1) {
+                        console.log("INSIDE IF-----ENDING")
+                        res.end();
+                    }
+
+                    j++;
+                })
+                .catch(function(err) {
+                    // console.error("INSIDE CATCH", err);
+
+                    res.end();
+
+                })
+
+
+        }
+
+
+        console.log(i + "    OUTSIDE OF FOR LOOP");
+
+
+    } //end of contPromise
 
 
 
 
 
-
-}
+// if(i==arr.length)
+// 			{
+// 				console.log("asdfguhjhgfdg43567890-97632hgjfcvb");
+// 				res.end();
+// 			}
